@@ -1,60 +1,29 @@
-// var fs = require('fs');
-// var express = require('express');
-// var path = require('path');
-// var mongoose = require('mongoose');
+//Internal modules
+var path = require("path");
 
+//External modules
+var express = require("express");
+var pug = require("pug");
 
-// var app = express();
+//Local modules
+var routes = require("./routes.js");
 
-// // Connect to the database
-// mongoose.connect('mongodb://josh:josh@ds163020.mlab.com:63020/imgup');
+//Setup
+var app = express();
+var port = process.env.PORT || 3000;
+	
+app.use(express.static(path.resolve(__dirname, "css")));
+app.use(express.static(path.resolve(__dirname, "js")));
+app.use(express.static(path.resolve(__dirname, "img")));
 
-// // Create schema
-// var users = new mongoose.Schema({
-//     username: String,
-//     password: String,
-//     email: String
-// });
+//set the view folder
+app.set("views", path.resolve(__dirname, "pug"));
 
-// // Create Model
-// var User = mongoose.model('User', users);
+//set the view engine
+app.set("view engine", "pug");
 
-// //Add a user to database
-// var josh = User({
-//     username: 'josh',
-//     password: 'josh',
-//     email: 'mydevaccs@gmail.com'
-//     }).save(function(err){
-//         if(err) throw err;
-//         console.log('User Added');
-//     });
+app.use(routes);
 
-
-// // On signup modal button click
-// // check to see if the user email exist, 
-// // if not allow sign up, if it does show error
-// // --- This is where I am not sure how to access the document.html
-// // if(users.collection.find({ "fieldToCheck": { $exists: true, $ne: null } })){
-// //     // logic here
-// // }
-
-
-// app.set('view engine', 'ejs');
-
-
-// //static files
-// app.use(express.static(path.join(__dirname, '.')));
-
-// app.get('/', function(req, res){
-//     res.render('landing');
-// })
-// app.get('/images', function(req, res){
-//     res.render('images');
-// })
-
-// app.post()
-// // Listen on port 3000
-// app.listen(3000);
-// console.log('Server listening on port: 3000...');
-
-
+app.listen(port, function(){
+	console.log("Application running at port " + port);
+});
