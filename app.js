@@ -19,7 +19,7 @@ var users = new mongoose.Schema({
 // Create Model
 var User = mongoose.model('User', users);
 
-//Add a use to database
+//Add a user to database
 var josh = User({
     username: 'josh',
     password: 'josh',

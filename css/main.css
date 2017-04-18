@@ -992,6 +992,10 @@ section .upload-area {
   text-align: center;
   padding: 50px;
   color: #333; }
+  section .upload-area #url {
+    background: #fff;
+    border-radius: 20px;
+    padding: 5px; }
   section .upload-area i {
     padding: 20px;
     display: inline-block; }

@@ -5,7 +5,7 @@
     Repeat the string by `var length`
     Slice `var length` characters from the string.
 */
-var siteURL = "www.thesite.com/";
+var siteURL = "www.imgup.com/";
 
 $(document).ready(function(){
     function GenerateURL(){

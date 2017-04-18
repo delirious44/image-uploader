@@ -24,7 +24,12 @@ html(lang='en')
                     h1.instructions Copy &amp; Paste or Drag & Drop
                     p.instructions-small the image you want to upload.
                     //- i(class="fa fa-cloud-upload fa-2x" aria-hidden="true")
-                    span.agreement By creating a post you agree to imgup's Terms &amp; Service and Privacy Policy
+                    .agreement
+                        | By creating a post you agree to imgup&apos;s 
+                        a.legal Terms &amp; Service
+                        |  and 
+                        a.legal Privacy Policy
+
 
        
         script(src='js/generateURL.js')
