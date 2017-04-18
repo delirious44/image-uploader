@@ -1,5 +1,6 @@
 # Image uploader app
 
+![Alt text](http://imgur.com/a/spkkl)
 
 ## Todo list
 
