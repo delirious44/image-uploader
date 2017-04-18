@@ -14,4 +14,5 @@ $(document).ready(function(){
         return randomString;
     }
     $("#url").html(GenerateURL);
+    
 }); 

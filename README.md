@@ -3,7 +3,6 @@
 ## Todo list
 
 ##### Uploading images
-* By using this [This API.] (https://www.npmjs.com/package/ng-file-upload)
 
 ##### Sign up/Sign in
 * if the user clicks sign or sign up, the information provided 
