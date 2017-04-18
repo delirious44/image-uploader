@@ -1,6 +1,7 @@
 # Image uploader app
 
-![Alt text](http://imgur.com/a/spkkl)
+[![sample screenshot](http://imgur.com/a/spkkl)](http://imgur.com/a/spkkl)
+
 
 ## Todo list
 
