@@ -1,0 +1,25 @@
+{
+  "name": "image-uploader",
+  "version": "1.0.0",
+  "description": "A image uploader application where users can upload and share images.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joshbeyer/image-uploader.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joshbeyer/image-uploader/issues"
+  },
+  "homepage": "https://github.com/Joshbeyer/image-uploader#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "fs": "0.0.1-security",
+    "mongoose": "^4.9.5",
+    "path": "^0.12.7"
+  }
+}

@@ -38,12 +38,12 @@ sass/
 
 Pug/
 |
-|-- includes/              # Includes dir, each .pug file can be included into the index.pug file to be transpiled into index.html
-|   |-- header.pug         # Include to get all modules
-|   |-- about.pug     # Module name
-|   |-- footer.pug      # Etc...
+|-- includes/          # Includes dir, each .pug file can be included into the index.pug file to be transpiled into index.html
+|   |-- header.pug     # Include to get all modules
+|   |-- about.pug      # Module name
+|   |-- footer.pug     # Etc...
 |   ...
 |
-`-- index.pug            # Primary Pug file use `include includes/filename`
+`-- index.pug          # Primary Pug file use `include includes/filename`
 
 
