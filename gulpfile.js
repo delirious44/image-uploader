@@ -11,22 +11,21 @@ var paths = {
 
 // ##### PUG TO HTML #####
 gulp.task('pug', function() {
-  gulp.src('./pug/.*.pug')
+  gulp.src('./pug/idex.pug')
   .pipe(pug({
       pretty: true
   }))
-  .pipe(gulp.dest('./..'))
+  .pipe(gulp.dest('./'))
 });
 
 gulp.task('watch-pug', function(){
-    gulp.watch('./*.pug', ['pug'])
+    gulp.watch('pug', ['pug'])
 });
-
 // ##### SASS WATCH #####
 gulp.task('sass', function () {
-  return gulp.src('./sass/**/*.scss')
+  return gulp.src('./sass/main.sass')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./css/'));
 });
 gulp.task('watch', function() {  
   gulp.watch(paths.sass, ['sass']);
