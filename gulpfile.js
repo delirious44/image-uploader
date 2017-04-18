@@ -11,7 +11,7 @@ var paths = {
 
 // ##### PUG TO HTML #####
 gulp.task('pug', function() {
-  gulp.src('./pug/idex.pug')
+  gulp.src('./pug/index.pug')
   .pipe(pug({
       pretty: true
   }))
