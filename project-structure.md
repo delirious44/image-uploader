@@ -1,4 +1,4 @@
-# This is the structure of the project
+# This is the structure of the project - View in Raw Format
 
 # Sass structure
 sass/
