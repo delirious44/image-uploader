@@ -1,8 +1,5 @@
 # Image uploader app
 
-[![sample screenshot](http://imgur.com/a/spkkl)](http://imgur.com/a/spkkl)
-
-
 ## Todo list
 
 ##### Uploading images
