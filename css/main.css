@@ -840,29 +840,46 @@ hr {
   border-top: 0;
   margin: 1.5em 0; }
 
-header #content-wrapper {
-  background: #34495e;
-  color: #fff;
-  text-align: center;
-  width: 100%; }
-  header #content-wrapper img {
-    width: 100px;
-    margin-bottom: 2em;
-    margin-top: 5em; }
-  header #content-wrapper h1 {
-    font-size: 3em; }
-  header #content-wrapper h2 {
-    margin-bottom: 2em;
-    letter-spacing: 0.1em;
-    font-weight: 100; }
-  header #content-wrapper a:visited {
-    color: #fff; }
-  header #content-wrapper a i {
-    padding: 15px;
-    margin-bottom: 2em;
-    color: #fff; }
-    header #content-wrapper a i:hover {
-      color: #95a5a6; }
+header nav::after {
+  clear: both;
+  content: "";
+  display: table; }
+header nav .left {
+  float: left;
+  margin-left: 3em; }
+  header nav .left .logo i {
+    margin-left: 0.1em;
+    display: inline-block; }
+  header nav .left .logo h1 {
+    display: inline-block;
+    letter-spacing: 0.005em;
+    font-size: 2em; }
+    header nav .left .logo h1 .highlight {
+      color: #2b90d9; }
+header nav .right {
+  float: right;
+  margin-top: 1.8em;
+  margin-right: 2em; }
+  header nav .right li {
+    display: inline-block;
+    padding: 0 10px; }
+    header nav .right li .signin-btn,
+    header nav .right li .signup-btn {
+      padding: 5px 20px;
+      border-radius: 20px;
+      color: #d9e1e8; }
+      header nav .right li .signin-btn:hover,
+      header nav .right li .signup-btn:hover {
+        text-decoration: none; }
+    header nav .right li .signin-btn {
+      background: #c9d4de;
+      color: #282c37; }
+      header nav .right li .signin-btn:hover {
+        background: #b9c8d5; }
+    header nav .right li .signup-btn {
+      background: #2b90d9; }
+      header nav .right li .signup-btn:hover {
+        background: #56a7e1; }
 
 .modal {
   text-align: center;
@@ -954,44 +971,13 @@ footer {
 body {
   background: #d9e1e8; }
 
-header {
-  background: #d9e1e8; }
-  header nav::after {
-    clear: both;
-    content: "";
-    display: table; }
-  header nav .left {
-    float: left;
-    margin-left: 2em; }
-    header nav .left .logo i {
-      margin-left: 0.1em;
-      display: inline-block; }
-    header nav .left .logo h1 {
-      display: inline-block;
-      letter-spacing: 0.005em;
-      font-size: 2em; }
-      header nav .left .logo h1 .highlight {
-        color: #2b90d9; }
-  header nav .right {
-    float: right;
-    margin-top: 1em;
-    margin-right: 2em; }
-    header nav .right li {
-      display: inline-block;
-      padding: 0 10px; }
-      header nav .right li a {
-        background: none;
-        color: #333;
-        border: solid 2px #2b90d9;
-        padding: 5px; }
-
 section .upload-area {
   max-width: 500px;
   margin: 0 auto;
   margin-top: 2em;
   text-align: center;
   padding: 50px;
-  color: #333; }
+  color: #282c37; }
   section .upload-area #url {
     background: #fff;
     border-radius: 20px;
@@ -1007,5 +993,7 @@ section .upload-area {
     display: inline-block;
     font-size: 0.6em;
     margin-top: 2em; }
+    section .upload-area .agreement .legal {
+      color: #2b90d9; }
 
 /*# sourceMappingURL=main.css.map */

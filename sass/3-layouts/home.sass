@@ -1,55 +1,15 @@
-$lightestblue: #d9e1e8
-$lightblue: #9baec8
-$darkblue: #282c37
-$vividblue: #2b90d9
-
 body
     background: $lightestblue
-header
-    background: $lightestblue
-    nav
-        +clearfix
-        .left
-            // background: #333
-            float: left
-            margin-left: 2em
-            .logo
-                i
-                    margin-left: 0.1em
-                    display: inline-block
-                h1
-                    display: inline-block
-                    letter-spacing: .005em
-                    // letter-spacing: .06em
-                    font:
-                        size: 2em
-                    .highlight
-                        color: $vividblue
-                        // text-transform: uppercase
 
-        .right
-            float: right
-            margin-top: 1em
-            margin-right: 2em
-            li
-                display: inline-block
-                padding: 0 10px
-                a
-                    background: none
-                    color: #333
-                    border: solid 2px $vividblue
-                    padding: 5px
-                    // background: lighten($vividblue, 15)
+
 section
     .upload-area
-        // background: $vividblue
-        // border: dashed 8px rgba(0,0,0,0.4) 
         max-width: 500px
         margin: 0 auto
         margin-top: 2em
         text-align: center
         padding: 50px
-        color: #333
+        color: $darkblue
         #url
             background: #fff
             border-radius: 20px
@@ -65,3 +25,5 @@ section
             display: inline-block
             font-size: .6em
             margin-top: 2em
+            .legal
+                color: $vividblue

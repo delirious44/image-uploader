@@ -1,25 +1,40 @@
 header
-  #content-wrapper
-    background: #34495e
-    color: #fff
-    text-align: center
-    width: 100% 
-    img
-      width: 100px
-      margin-bottom: 2em
-      margin-top: 5em
-    h1
-      font-size: 3em
-    h2
-      margin-bottom: 2em
-      letter-spacing: .1em
-      font-weight: 100
-    a
-      &:visited
-        color: #fff
-      i
-        padding: 15px
-        margin-bottom: 2em
-        color: #fff
-        &:hover
-          color: #95a5a6
+    nav
+        +clearfix
+        .left
+            float: left
+            margin-left: 3em
+            .logo
+                i
+                    margin-left: 0.1em
+                    display: inline-block
+                h1
+                    display: inline-block
+                    letter-spacing: .005em
+                    font:
+                        size: 2em
+                    .highlight
+                        color: $vividblue
+        .right
+            float: right
+            margin-top: 1.8em
+            margin-right: 2em
+            li
+                display: inline-block
+                padding: 0 10px
+                .signin-btn,
+                .signup-btn
+                    padding: 5px 20px 
+                    border-radius: 20px
+                    color: $lightestblue
+                    &:hover
+                        text-decoration: none
+                .signin-btn
+                    background: darken($lightestblue, 5)
+                    color: $darkblue
+                    &:hover
+                        background: darken($lightestblue, 10)
+                .signup-btn
+                    background: $vividblue
+                    &:hover
+                        background: lighten($vividblue, 10)
