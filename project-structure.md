@@ -1,55 +1,49 @@
 # This is the structure of the project
 
 # Sass structure
-stylesheets/
+sass/
 |
-|-- modules/              # Common modules
-|   |-- _all.scss         # Include to get all modules
-|   |-- _utility.scss     # Module name
-|   |-- _colors.scss      # Etc...
-|   ...
-|
-|-- partials/             # Partials
-|   |-- _base.sass        # imports for all mixins + global project variables
-|   |-- _buttons.scss     # buttons
-|   |-- _figures.scss     # figures
-|   |-- _grids.scss       # grids
-|   |-- _typography.scss  # typography
-|   |-- _reset.scss       # reset
+|-- plugins/
+|   |-- bitters/         # Scaffold styles, variables and structure.
+|   |-- bourbon/         # A simple and lightweight mixin library for Sass.
+|   |-- normalize.sass   # Css Reset
+|   |-- skeleton.sass    # A dead simple responsive grid
+|   |-- plugins.sass     # Include to get all partials
+|-- modules/              
+|   |-- buttons.scss     # buttons
+|   |-- figures.scss     # figures
+|   |-- grids.scss       # grids
+|   |-- typography.scss  # typography
+|   |-- reset.scss       # reset
+|   |-- modules-dir.sass # Include to get all modules
+|-- partials/            # Breaking the main sass files into smaller modular sections
+|   |-- header.sass      
+|   |-- footer.sass      
+|   |-- partials.sass    # Include to get all partials
+|-- layouts/             
+|   |-- home.sass
+|   |-- about.sass
+|   |-- layouts-dir.sass # Include to get all layouts
 |   ...
 |
 |-- vendor/               # CSS or Sass from other projects
-|   |-- _colorpicker.scss
-|   |-- _jquery.ui.core.scss
+|   |-- fontawesome.io/
+|   |-- jquery.ui.core/
 |   ...
 |
-`-- main.scss            # primary Sass file
+`-- main.scss            # primary Sass file which is made up of each plugins-dir.sass, modules-dir.sass, partials-dir.sass, etc.
 
 
 # Pug structure
 
-stylesheets/
+Pug/
 |
-|-- modules/              # Common modules
-|   |-- _all.scss         # Include to get all modules
-|   |-- _utility.scss     # Module name
-|   |-- _colors.scss      # Etc...
+|-- includes/              # Includes dir, each .pug file can be included into the index.pug file to be transpiled into index.html
+|   |-- header.pug         # Include to get all modules
+|   |-- about.pug     # Module name
+|   |-- footer.pug      # Etc...
 |   ...
 |
-|-- partials/             # Partials
-|   |-- _base.sass        # imports for all mixins + global project variables
-|   |-- _buttons.scss     # buttons
-|   |-- _figures.scss     # figures
-|   |-- _grids.scss       # grids
-|   |-- _typography.scss  # typography
-|   |-- _reset.scss       # reset
-|   ...
-|
-|-- vendor/               # CSS or Sass from other projects
-|   |-- _colorpicker.scss
-|   |-- _jquery.ui.core.scss
-|   ...
-|
-`-- main.scss            # primary Sass file
+`-- index.pug            # Primary Pug file use `include includes/filename`
 
 
