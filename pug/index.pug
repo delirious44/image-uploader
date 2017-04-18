@@ -7,22 +7,19 @@ html(lang='en')
         //- FontawesomeIcons - Remove if not needed
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css')
         link(rel='stylesheet', href='css/main.css')
-        title imgup
+        title Img uploader
     body
         //- To include pug files use this syntax
         //- include foldername/filename without add '.pug' to the end
         //- place it where the code would normally begin. 
         include includes/header
-        section
-            h1 This is an example
-            //- remove these if you get the point lol. 
-            include includes/h2-example
-
-            ul
-                li
-                    a examples
-                li
-                    a example
+        
+        #big-container
+          #drop-container
+            span drop the image here
+          #buttons-part
+            button#chose-file Chose file  
+            button#submit Submit
 
         //- include script
         script(src='js/generateURL.js')
