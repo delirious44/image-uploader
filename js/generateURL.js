@@ -7,12 +7,14 @@
 */
 var siteURL = "www.imgup.com/";
 
-$(document).ready(function(){
+function RandomURL(){
     function GenerateURL(){
         var length = 16;
+        var url = document.querySelector('#url');
         var randomString = siteURL + Array(length+1).join((Math.random().toString(36)+'00000000000000000').slice(2, 18)).slice(0, length);
         return randomString;
     }
-    $("#url").html(GenerateURL);
+    document.getElementById('url').innerHTML = GenerateURL();
     
-}); 
+}
+RandomURL();
