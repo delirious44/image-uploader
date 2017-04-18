@@ -1,0 +1,33 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(http-equiv='X-UA-Compatible', content='ie=edge')
+        link(href='https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900', rel='stylesheet')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css', integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp', crossorigin='anonymous')
+        link(rel='stylesheet', href='css/main.css')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js')
+        title imgup
+    body
+        include includes/header
+        include includes/modals
+        //- include includes/footer
+        section
+            .container
+                .upload-area
+                    span
+                        h1#url 
+                    i(class="fa fa-picture-o fa-5x" aria-hidden="true")
+                    h1.instructions Copy &amp; Paste or Drag & Drop
+                    p.instructions-small the image you want to upload.
+                    //- i(class="fa fa-cloud-upload fa-2x" aria-hidden="true")
+                    span.agreement By creating a post you agree to imgup's Terms &amp; Service and Privacy Policy
+
+       
+        script(src='js/generateURL.js')
+        script(src='js/modal.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
+        //- script(src='js/header.js')
