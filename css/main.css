@@ -37,7 +37,7 @@ h1 {
   flex-direction: row;
   justify-content: space-around;
   align-items: center; }
-  #buttons-part button {
+  #buttons-part input#submit {
     color: #fff;
     background-color: #030408;
     width: auto;
@@ -47,6 +47,13 @@ h1 {
     cursor: pointer;
     font-size: 17px;
     border-bottom: 1px solid #0037DA; }
+  #buttons-part input#choose-file {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    border-bottom: 1px solid #B31818;
+    width: 240px; }
 
 #url {
   border: none;
