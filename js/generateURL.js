@@ -33,7 +33,7 @@ RandomURL();
             url.focus();
             url.setSelectionRange(0, url.value.length);
 
-            //Copy
+            //Copy the text
             document.execCommand("copy");
 
         }
