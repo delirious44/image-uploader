@@ -11,7 +11,14 @@ var routes = require("./routes.js");
 //Setup
 var app = express();
 var port = process.env.PORT || 3000;
-	
+
+// bodyParser add , note: bodyParser should be near the top - before the routing, the comments can be cleared afterwards
+// npm install body-parser / saved at package.json .. >> code from kastri
+
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
 app.use(express.static(path.resolve(__dirname, "css")));
 app.use(express.static(path.resolve(__dirname, "js")));
 app.use(express.static(path.resolve(__dirname, "img")));
