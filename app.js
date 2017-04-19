@@ -16,6 +16,7 @@ var port = process.env.PORT || 3000;
 
 
 
+// JOSH's code begins --------------------------------------------
 // Multer setup
 var storage = multer.diskStorage({
     // Set file destination
@@ -30,9 +31,17 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 app.post('/', upload.any(), function(req, res, next){
 		console.log(req.files);
-        res.send(req.files);
+        // res.send(req.files);
+        function GenerateURL(){
+            var length = 16;
+            var randomString = siteURL + Array(length+1).join((Math.random().toString(36)+'00000000000000000').slice(2, 18)).slice(0, length);
+            return randomString;
+        }
+        // Here we need to get the #url element 
+        // and change its innerHTML into GenerateURL
+        // 
 	});
-
+// -------------------------------END Josh's Code
 
 
 
