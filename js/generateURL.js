@@ -27,12 +27,16 @@ RandomURL();
         var copyButton = document.querySelector("#copy");
         var url = document.querySelector("#url");
 
-        //Select the text to be copied
-        url.focus();
-        url.setSelectionRange(0, url.value.length);
+        copyButton.onclick = function(){
 
-        //Copy
-        document.execCommand("copy");
+            //Select the text to be copied
+            url.focus();
+            url.setSelectionRange(0, url.value.length);
+
+            //Copy the text
+            document.execCommand("copy");
+
+        }
 
     }
 
