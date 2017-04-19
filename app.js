@@ -29,7 +29,8 @@ app.set("views", path.resolve(__dirname, "pug"));
 //set the view engine
 app.set("view engine", "pug");
 
-app.use(routes);
+var routes = require('./routes.js');
+routes(app);
 
 app.listen(port, function(){
 	console.log("Application running at port " + port);
