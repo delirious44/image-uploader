@@ -64,3 +64,15 @@ h1 {
   padding: 8px 18px; }
   #url:focus {
     outline: 1px solid #0037DA; }
+
+#btn {
+  color: #fff;
+  background-color: #030408;
+  margin-bottom: 10px;
+  width: auto;
+  padding: 6px 16px;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-bottom: 1px solid #0037DA; }
