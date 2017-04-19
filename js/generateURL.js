@@ -18,3 +18,26 @@ function RandomURL(){
     
 }
 RandomURL();
+
+//Implementing copy functionality
+(function(){
+
+    try{
+        //Get the necessary inputs
+        var copyButton = document.querySelector("#copy");
+        var url = document.querySelector("#url");
+
+        //Select the text to be copied
+        url.focus();
+        url.setSelectionRange(0, url.value.length);
+
+        //Copy
+        document.execCommand("copy");
+
+    }
+
+    catch(err){
+        console.log("Couldn't copy");
+    }
+
+})();
