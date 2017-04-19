@@ -20,8 +20,9 @@ html(lang='en')
           #drop-container
             span drop the image here
           #buttons-part
-            button#chose-file Chose file  
-            button#submit Submit
+            form(method='POST' enctype='multipart/form-data')
+                input(type='file' name='file')#choose-file
+                input(type='submit' name='submit' value='submit')#submit
 
         //- include script
         script(src='generateURL.js')
