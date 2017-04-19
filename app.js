@@ -25,7 +25,7 @@ var storage = multer.diskStorage({
     },
     // Name the file
     filename: function(req, file, cb){
-        cb(null, Date.now() + file.originalname);
+        cb(null, file.originalname);
     }
 });
 var upload = multer({ storage: storage });
@@ -42,7 +42,12 @@ app.post('/', upload.any(), function(req, res, next){
         // Here we need to get the #url element 
         // and change its innerHTML into GenerateURL
         // 
-	});
+        var fileObject = req.files[0];
+		var imageName = req.body.imageUrl.substr(14);
+        var extension = fileObject.originalname.substr(fileObject.originalname.lastIndexOf("."));
+        fileObject.originalname = imageName + extension;
+        console.log(fileObject.originalname);
+});
 // -------------------------------END Josh's Code
 
 
