@@ -33,6 +33,7 @@ app.post('/', upload.any(), function(req, res, next){
 		console.log(req.files);
         console.log(req.body);
         // res.send(req.files);
+        var testurl = req.body.imageUrl;
         function GenerateURL(){
             var length = 16;
             var randomString = siteURL + Array(length+1).join((Math.random().toString(36)+'00000000000000000').slice(2, 18)).slice(0, length);
