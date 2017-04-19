@@ -13,8 +13,8 @@ var routes = require("./routes.js");
 var app = express();
 var port = process.env.PORT || 3000;
 
-
-
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // JOSH's code begins --------------------------------------------
 // Multer setup
@@ -31,6 +31,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 app.post('/', upload.any(), function(req, res, next){
 		console.log(req.files);
+        console.log(req.body);
         // res.send(req.files);
         function GenerateURL(){
             var length = 16;
@@ -47,10 +48,6 @@ app.post('/', upload.any(), function(req, res, next){
 
 // bodyParser add , note: bodyParser should be near the top - before the routing, the comments can be cleared afterwards
 // npm install body-parser / saved at package.json .. >> code from kastri
-
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true }));
-
 
 app.use(express.static(path.resolve(__dirname, "css")));
 app.use(express.static(path.resolve(__dirname, "js")));
