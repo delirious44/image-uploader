@@ -16,9 +16,9 @@
     <div id="big-container">
       <input id="url" type="text" placeholder="">
       <div id="drop-container"><span>drop the image here</span></div>
-      <form id="buttons-part" method="post">
-        <button id="chose-file">Chose file  </button>
-        <button id="submit">Submit</button>
+      <form id="buttons-part" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" id="choose-file">
+        <input type="submit" name="submit" value="submit" id="submit">
       </form>
     </div>
     <script src="generateURL.js"></script>
