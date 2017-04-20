@@ -5,7 +5,7 @@ var path = require("path");
 var express = require("express");
 var pug = require("pug");
 var multer = require("multer");
-
+var mongoose = require("mongoose");
 //Local modules
 var routes = require("./routes.js");
 
@@ -17,6 +17,19 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // JOSH's code begins --------------------------------------------
+
+// ##### DATABASE SECTION MOVE THIS LATER
+// Connect to the database
+mongoose.connect('mongodb://josh:josh@ds163020.mlab.com:63020/imgup');
+// Create schema
+var images = new mongoose.Schema({
+image: String,
+url: String
+});
+// Create Model
+var Image = mongoose.model('imageId', images);
+
+
 // Multer setup
 var storage = multer.diskStorage({
     // Set file destination
@@ -30,24 +43,29 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage });
 app.post('/', upload.any(), function(req, res, next){
-		console.log(req.files);
-        console.log(req.body);
-        // res.send(req.files);
-        var testurl = req.body.imageUrl;
-        function GenerateURL(){
-            var length = 16;
-            var randomString = siteURL + Array(length+1).join((Math.random().toString(36)+'00000000000000000').slice(2, 18)).slice(0, length);
-            return randomString;
-        }
-        // Here we need to get the #url element 
-        // and change its innerHTML into GenerateURL
-        // 
-        var fileObject = req.files[0];
-		var imageName = req.body.imageUrl.substr(14);
-        var extension = fileObject.originalname.substr(fileObject.originalname.lastIndexOf("."));
-        fileObject.originalname = imageName + extension;
-        console.log(fileObject.originalname);
+    var imageUrl = req.body.imageUrl.substr(14);
+    var imageName = req.files[0].originalname
+
+    // ##### DATABASE SECTION MOVE THIS LATER
+    //Add a image to database
+    var sunglasses = Image({
+    image: imageName,
+    url: imageUrl
+    }).save(function(err){
+        if(err) throw err;
+        console.log('Image Uploaded: name: ' + imageName + ' url: ' + imageUrl);
+        console.log("DOne :)");
+    });
 });
+
+
+
+
+
+
+
+
+
 // -------------------------------END Josh's Code
 
 
@@ -69,5 +87,5 @@ var routes = require('./routes.js');
 routes(app);
 
 app.listen(port, function(){
-	console.log("Application running at port " + port);
+    console.log("Application running at port " + port);
 });
