@@ -82,3 +82,24 @@ function clearUrl(){
     }
 
 })();
+
+//Implementing the ajax form sending
+(function(){
+
+    try{
+
+        var form = document.querySelector("#buttons-part");
+        var sumbitButton = document.querySelector("#submit");
+
+        form.onsubmit = function(event){
+            event.preventDefault();
+            sumbitButton.innerText = "uploading";
+        }
+
+    }
+
+    catch(err){
+        console.log("This form stuff is shit");
+    }
+
+})();
