@@ -27,14 +27,23 @@ RandomURL();
         var copyButton = document.querySelector("#copy");
         var url = document.querySelector("#url");
 
-        copyButton.onclick = function(){
-
+        copyButton.onclick = function(event){
+            event.preventDefault();
             //Select the text to be copied
             url.focus();
             url.setSelectionRange(0, url.value.length);
 
             //Copy the text
             document.execCommand("copy");
+
+            var copyAlert = document.querySelector("#copy-alert");
+            copyAlert.style.opacity = 1;
+
+            function close(){
+                copyAlert.style.opacity = 0;
+            }
+
+            setTimeout(close, 1000);
 
         }
 
