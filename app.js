@@ -55,6 +55,7 @@ app.post('/', upload.any(), function(req, res, next){
         if(err) throw err;
         console.log('Image Uploaded: name: ' + imageName + ' url: ' + imageUrl);
         console.log("DOne :)");
+        res.redirect('/');
     });
 });
 
