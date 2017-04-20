@@ -17,7 +17,11 @@ function RandomURL(){
     url.value = GenerateURL();
     
 }
-RandomURL();
+
+function clearUrl(){
+    var url = document.querySelector("#url");
+    url.value = "";
+}
 
 //Implementing copy functionality
 (function(){
@@ -51,6 +55,30 @@ RandomURL();
 
     catch(err){
         console.log("Couldn't copy");
+    }
+
+})();
+
+//Implementing the click generate functionality
+(function(){
+
+    try{
+
+        var fileInput = document.querySelector("#choose-file");
+
+        fileInput.addEventListener("click", function(event){
+            this.value = "";
+            clearUrl();
+        });
+
+        fileInput.addEventListener("change", function(event){
+            RandomURL();
+        });
+
+    }
+
+    catch(err){
+        console.log("This is shit");
     }
 
 })();
