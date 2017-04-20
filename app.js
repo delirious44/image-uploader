@@ -59,7 +59,22 @@ app.post('/', upload.any(), function(req, res, next){
 });
 
 
-
+app.get("/image/:id", function(req, res){
+    var imageUrl = req.params.id;
+    Image.findOne({
+        url: imageUrl
+    }, function(err, image){
+        if(err){
+            console.log(err);
+            return;
+        }
+        else{
+            var location = image.image;
+            location = path.resolve(__dirname, "uploads", "images", location);
+            res.sendFile(location);
+        }
+    });
+});
 
 
 
