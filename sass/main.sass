@@ -29,7 +29,7 @@ h1
   display: flex
   justify-content: center
   align-items: center
-  border-bottom: 1px solid #FF5733
+  border-bottom: 3px solid #2A9DE3
 
   span
     color: #fff
@@ -37,32 +37,50 @@ h1
     font-size: 20px
 
 #buttons-part
-  height: 75px
   width: 600px
   min-width: 600px
   display: flex
-  flex-direction: row
-  justify-content: space-around
-  align-items: center
+  flex-direction: column
 
-  input#submit
-    color: #fff
-    background-color: #030408
-    width: auto
-    padding: 9px 22px
-    border: none
-    text-decoration: none
-    cursor: pointer
-    font-size: 17px
-    border-bottom: 1px solid #0037DA
+  #inputplace
+    height: 75px
+    width: 100%
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    background-color: rgba(42, 157, 227, 0.05)
 
-  input#choose-file
-    background: none
-    border: none
-    color: #fff
-    font-size: 15px
-    border-bottom: 1px solid #B31818
-    width: 240px
+    input#submit
+      color: #fff
+      background-color: #030408
+      width: auto
+      padding: 6px 18px
+      border: none
+      text-decoration: none
+      cursor: pointer
+      font-size: 17px
+      border-bottom: 1px solid #0037DA
+      margin-left: 30px
+
+    input#choose-file
+      background: none
+      border: none
+      color: #fff
+      font-size: 15px
+      border-bottom: 1px solid #B31818
+      width: 240px
+      margin-right: 30px
+
+  #urlacopy
+    height: 75px
+    width: 100%
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    background-color: rgba(244, 39, 76, 0.05)
+
 
 #url
   border: none
@@ -71,6 +89,7 @@ h1
   margin-bottom: 10px
   color: rgba(255, 255, 255, 0.7)
   padding: 8px 18px
+  margin-right: 30px
 
   &:focus
     outline: 1px solid #0037DA
@@ -86,17 +105,16 @@ h1
   cursor: pointer
   font-size: 14px
   border-bottom: 1px solid #0037DA
+  margin-left: 30px
 
 #copy-alert
   color: white
-  border: 1px solid black
-  width: 200px
-  padding: 10px 0
+  padding: 5px 12px
   text-align: center
-  font-family: sans-serif
-  background-color: red
+  font-family: 'Raleway', sans-serif
+  background-color: rgba(74, 219, 57, 0.1)
   position: absolute
   top: 90vh
   right: 20px
   opacity: 0
-  transition: all 1s
+  transition: all 1s ease-in-out

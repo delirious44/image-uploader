@@ -15,14 +15,18 @@
     </header>
     <div id="big-container">
       <div id="copy-alert">
-        <p>Text Copied</p>
+        <p>Url copied</p>
       </div>
       <div id="drop-container"><span>drop the image here</span></div>
       <form id="buttons-part" method="POST" enctype="multipart/form-data">
-        <input type="file" name="file" id="choose-file">
-        <input type="submit" name="submit" value="submit" id="submit">
-        <input id="url" type="text" name="imageUrl" placeholder="">
-        <button id="copy">Copy the url</button>
+        <div id="inputplace">
+          <input type="file" name="file" id="choose-file">
+          <input type="submit" name="submit" value="submit" id="submit">
+        </div>
+        <div id="urlacopy"> 
+          <input id="url" type="text" name="imageUrl" placeholder="">
+          <button id="copy">Copy the url</button>
+        </div>
       </form>
     </div>
     <script src="generateURL.js"></script>
