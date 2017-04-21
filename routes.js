@@ -20,6 +20,7 @@ module.exports = function(app){
     // Logout
     app.get('/logout', function(req, res){
         req.logout();
+        app.set('view engine', 'ejs');
         res.redirect('/');
     });
 
