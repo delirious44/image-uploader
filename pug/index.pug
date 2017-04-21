@@ -16,6 +16,11 @@ html(lang='en')
         include includes/header
         
         #big-container
+          //- if no user
+          a.login(href="/login") Login
+          a.login(href="/register") Register
+          //- if user
+          a.login(href="/logout") Logout
           #copy-alert
             p Url copied
           #drop-container

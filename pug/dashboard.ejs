@@ -1,0 +1,15 @@
+<h1>Welcome, <%=currentUser.username%> </h1>
+<% if(!currentUser){ %>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+<% }else{ %>
+    <a href="/logout">Logout</a>
+<% } %>
+
+<div class="contentarea">
+    // Forloop to display all currentUser's images
+    <div class="imagewrapper">
+        // src = currentUser.images[index]
+        <img src="" alt="">
+    </div>
+</div>
