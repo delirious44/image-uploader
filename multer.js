@@ -29,8 +29,7 @@ module.exports = function(multer, app, Image){
         if(err) throw err;
         console.log('Image Uploaded: name: ' + imageName + ' url: ' + imageUrl);
         console.log("Done :)");
-        res.send('/' + 'image/' + imageUrl);
-        res.end();
+        res.redirect('/' + 'image/' + imageUrl);
       });
   });
 }
