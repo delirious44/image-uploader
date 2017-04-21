@@ -48,6 +48,16 @@ var multerSet = require('./multer.js');
 multerSet(multer, app, Image);
 
 
+// Passport setup, check auth.js for code
+var auth = require('./auth.js');
+auth(auth, app);
+
+// Setup middleware so currentUse is available
+// Needs to be before routes
+app.use(function(req, res, next){
+  res.locals.currentUser = req.user;
+  next();
+})
 
 
 
