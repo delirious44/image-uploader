@@ -16,11 +16,21 @@ html(lang='en')
         include includes/header
         
         #big-container
-          //- if no user
-          a.login(href="/login") Login
-          a.login(href="/register") Register
-          //- if user
-          a.login(href="/logout") Logout
+          #navigation
+            if !currentUser
+              .options
+                .opt1
+                  a.login(href="/login") Login
+                  .hoverstate
+                .opt2
+                  a.login(href="/register") Register
+                  .hoverstate
+            else
+              .options
+                .opt1
+                  a.login(href="/logout") Logout
+                  .hoverstate
+              
           #copy-alert
             p Url copied
           #drop-container
@@ -30,7 +40,7 @@ html(lang='en')
               input(type='file' name='file')#choose-file
               input(type='submit' name='submit' value='submit')#submit
             #urlacopy 
-              input#url(type="text", name="imageUrl", placeholder="")
+              input#url(type="text", name="imageUrl", placeholder="Link's going to show here")
               button#copy Copy the url
 
         //- include script
