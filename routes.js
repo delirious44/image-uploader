@@ -20,7 +20,7 @@ module.exports = function(app){
     // Logout
     app.get('/logout', function(req, res){
         req.logout();
-        app.set('view engine', 'ejs');
+        app.set('view engine', 'pug');
         res.redirect('/');
     });
 
