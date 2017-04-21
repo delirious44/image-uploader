@@ -125,11 +125,15 @@ function clearUrl(){
 
         xhr.open(type, route, true);
 
-        xhr.onload = function(){
-            if(xhr.status === 200)
-                callback(xhr);
-            else
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === XMLHttpRequest.DONE){
+                if(xhr.status === 200){
+                    callback(xhr);
+                }
+            }
+            else{
                 console.log("An error occured");
+            }
         }
 
         xhr.send(data || "");
@@ -137,6 +141,7 @@ function clearUrl(){
     }
 
     function cb(xhr){
+        console.log(xhr);
         window.location.href = xhr.responseURL;
     }
 
