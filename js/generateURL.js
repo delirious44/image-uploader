@@ -82,3 +82,42 @@ function clearUrl(){
     }
 
 })();
+
+
+//Implementing drag drop feature
+(function(){
+
+    try{
+
+        var dropZone = document.querySelector("#drop-container");
+        var fileInput = document.querySelector("#choose-file");
+
+        dropZone.addEventListener("dragover", function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            dropZone.className = "hover";
+        });
+
+        dropZone.addEventListener("drop", function(event){
+            event.preventDefault();
+            event.stopPropagation();
+
+            dropZone.className = "";
+
+            var dt = event.dataTransfer;
+            fileInput.files = dt.files;
+
+        })
+
+    }
+
+    catch(error){
+        console.log("Drag drop is not supported at all");
+    }
+
+    function handleDrop(){
+        event.preventDefault();
+        console.log("someone dropped something here");
+    }
+
+})();
