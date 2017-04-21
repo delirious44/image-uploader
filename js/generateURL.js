@@ -82,3 +82,62 @@ function clearUrl(){
     }
 
 })();
+
+//Implementing the ajax form sending
+(function(){
+
+    try{
+
+        var form = document.querySelector("#buttons-part");
+        var sumbitButton = document.querySelector("#submit");
+        var fileInput = document.querySelector("#choose-file");
+        var url = document.querySelector("#url");
+
+        form.onsubmit = function(event){
+            event.preventDefault();
+            sumbitButton.value = "uploading";
+
+            //Get file
+            var file = fileInput.files[0];
+            var imageUrl = url.value;
+
+            //Create a form data object to submit
+            var formData = new FormData();
+
+            if(!file.type.match("image.*"))
+                return;
+
+            formData.append("file", file, file.name);
+            formData.append("imageUrl", imageUrl);
+
+            sendRequest("POST", "/", cb, formData);
+
+        }
+
+    }
+
+    catch(err){
+        console.log("This form stuff is shit");
+    }
+
+    function sendRequest(type, route, callback, data){
+        var xhr = new XMLHttpRequest();
+
+        xhr.open(type, route, true);
+
+        xhr.onload = function(){
+            if(xhr.status === 200)
+                callback(xhr);
+            else
+                console.log("An error occured");
+        }
+
+        xhr.send(data || "");
+
+    }
+
+    function cb(xhr){
+        window.location.href = xhr.responseURL;
+    }
+
+})();
