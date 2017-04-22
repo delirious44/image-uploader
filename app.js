@@ -8,6 +8,7 @@ var mongoose = require("mongoose");
 //Local modules
 var routes   = require("./routes.js");
 
+mongoose.connect('mongodb://josh:josh@ds163020.mlab.com:63020/imgup');
 
 //Setup
 var app  = express();
@@ -23,20 +24,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var Image = require("./models/image");
 
 // setting up database >>
-mongoose.connect('mongodb://josh:josh@ds163020.mlab.com:63020/imgup');
 
 // Passport
 var auth = require('./auth.js');
 
 
-// Multer setup, check multerjs for the code
-var multerSet = require('./multer.js');
-multerSet(multer, app);
-
-
 // Passport setup, check auth.js for code
 var auth = require('./auth.js');
 auth(auth, app);
+
+// Multer setup, check multerjs for the code
+var multerSet = require('./multer.js');
+multerSet(multer, app, Image);
+
 
 // Setup middleware so currentUse is available
 // Needs to be before routes
@@ -53,16 +53,17 @@ app.get("/image/:id", function(req, res){
     url: imageUrl
   }, function(err, image){
 
-    if(err){
-      console.log(err);
-      return;
-    }
-    
-    else{
-      var location = image.image;
-      location = path.resolve(__dirname, "uploads", "images", location);
-      res.sendFile(location);
-    }
+      if(err){
+        console.log(err);
+        return;
+      }
+
+      else{
+        console.log(image);
+        var location = image.image;
+        location = path.resolve(__dirname, "uploads", "images", location);
+        res.sendFile(location);
+      }
   });
 });
 

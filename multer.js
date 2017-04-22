@@ -1,4 +1,5 @@
 module.exports = function(multer, app, Image){
+
   // multer destination and name
   var storage = multer.diskStorage({
     
@@ -41,6 +42,7 @@ module.exports = function(multer, app, Image){
 
       // If user loggedin, setOwner to username
       var setOwner;
+      console.log(req.isAuthenticated());
       console.log(req.user);
       if(req.user){ setOwner = req.user.username; }
       else{ setOwner = 'Anonymous'; }
