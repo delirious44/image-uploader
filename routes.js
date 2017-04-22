@@ -1,7 +1,8 @@
 module.exports = function(app){
 
-       // var auth = require('./auth.js');
+       var auth = require('./auth.js');
     app.get('/', function(req, res){
+        app.set('view engine', 'pug');
         res.render('index');
     });
 
@@ -24,7 +25,7 @@ module.exports = function(app){
         res.redirect('/');
     });
 
-    image = require('./models/image');
+    var image = require('./models/image');
     // User Dashboard
     app.get('/dashboard', function(req, res){
         app.set('view engine', 'ejs');
