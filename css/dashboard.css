@@ -41,6 +41,16 @@
   margin-right: 40px;
 }
 
+.opt2 {
+  height: 100%;
+  width: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 40px;
+}
+
 .hoverstate {
   position: absolute;
   bottom: 0px;

@@ -11,7 +11,7 @@ module.exports = function(app){
         app.set('view engine', 'ejs');
         res.render('register');
     });
-    
+
     // Login
     app.get('/login', function(req, res){
         app.set('view engine', 'ejs');
@@ -28,19 +28,20 @@ module.exports = function(app){
     var image = require('./models/image');
     // User Dashboard
     app.get('/dashboard', function(req, res){
-        app.set('view engine', 'ejs');
-        image.find({'owner': req.user.username }, function(err, allImages){
-            
-            if(err){console.log(err);}
-            else{
-                res.render("dashboard", {userImages: allImages});
-                console.log(allImages);
-            }
-        });
-        setInterval(function() {
-      // Do something every 5 seconds
-      console.log(req.user.username);
-}, 5000);
+        if(req.user){
+            app.set('view engine', 'ejs');
+            image.find({'owner': req.user.username }, function(err, allImages){
+                if(err){console.log(err);}
+                else{
+                    res.render("dashboard", {userImages: allImages});
+                    console.log(allImages);
+                }
+            });
+        }else{
+            app.set('view engine', 'ejs');
+            res.redirect("/login");
+        }
+
     });
 
 };

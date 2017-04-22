@@ -1,6 +1,31 @@
-<h1>Login</h1>
-<form action="/login" method="POST">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <input type="submit" Value="Login">
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Image Uploader | Login</title>
+
+    <link href="login.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  </head>
+  <body>
+
+    <div id="big-container">
+
+      <div id="goback">
+
+        <a href="/"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+
+      </div>
+
+
+
+      <form action="/login" method="POST" autocomplete="off">
+          <input class="fill-need" type="text" name="username">
+          <input class="fill-need" type="password" name="password">
+          <input class="push-need" type="submit" Value="Login">
+      </form>
+
+    </div>
+  </body>
+</html>
