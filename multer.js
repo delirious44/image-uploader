@@ -42,42 +42,7 @@ module.exports = function(multer, app, Image){
 
       // If user loggedin, setOwner to username
       var setOwner;
-<<<<<<< HEAD
-      if(req.user != undefined)
-      {
-        // setOwner = req.user;
-        setOwner = req.user.username;
-      }else{
-        setOwner = 'Anonymous';
-      }
-
-      console.log(Image);
-
-      var imageOne = new Image({
-        image: imageName,
-        url: "/image/" + imageUrl,
-        path: imageUrl,
-        uploadDate: now,
-        expireDate: expirationDate,
-        owner: setOwner
-      });
-
-      imageOne.save(function(err){
-        console.log("Here");
-        if(err)
-          return err;
-        
-          console.log("Uploaded Image");
-          res.redirect("/image/" + imageUrl);
-      })
-
-
-      // Path logic here path should be
-      // `images/uploads/sdhfsdf`
-      // `or image/uploads/user/sidfhsdf`
-      var path = 'uploads/images/' + imageName;
-
-=======
+      console.log(req.isAuthenticated());
       console.log(req.user);
       if(req.user){ setOwner = req.user.username; }
       else{ setOwner = 'Anonymous'; }
@@ -95,6 +60,5 @@ module.exports = function(multer, app, Image){
         console.log("Done :)");
         res.redirect('/' + 'image/' + imageUrl);
       });
->>>>>>> 94958e42aec52df72da7f72207f37d03f9f8694f
   });
 }
