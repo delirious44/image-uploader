@@ -25,8 +25,8 @@ var Image = require("./models/image");
 
 // setting up database >>
 
-
-var now = new Date();
+// Passport
+var auth = require('./auth.js');
 
 
 // Multer setup, check multerjs for the code
@@ -46,9 +46,9 @@ app.use(function(req, res, next){
 })
 
 
-
 app.get("/image/:id", function(req, res){
   var imageUrl = req.params.id;
+
   Image.findOne({
     url: imageUrl
   }, function(err, image){
@@ -68,12 +68,11 @@ app.get("/image/:id", function(req, res){
 });
 
 
-
-
 // Static files
 app.use(express.static(path.resolve(__dirname, "css")));
 app.use(express.static(path.resolve(__dirname, "js")));
 app.use(express.static(path.resolve(__dirname, "img")));
+app.use(express.static(path.resolve(__dirname, "uploads/images")));
 
 
 
