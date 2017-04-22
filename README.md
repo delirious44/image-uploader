@@ -4,6 +4,8 @@
 
 ##### Dashboard
 * finish dashboard - on dashboard load, get all images associated with user account and display them in a grid. Add whatever presentation needed.
+- Issue: Can't resolve image path
+- Needs: Image{path: } setup
 
 ###### Presentation
 * Finish the presentation of the site.

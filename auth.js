@@ -47,7 +47,7 @@ module.exports = function(auth, app){
   // Check if user is logged in
   function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
-      return next();
+      return next();s
     }
     res.redirect('/login');
   }
