@@ -25,9 +25,7 @@
         <div id="image-block-holder">
 
           <% userImages.forEach(function(image){ %>
-            <div class="imageplace">
-              <img src="<%= image.image %>">
-              <span><%= image.name %></span>
+            <div class="imageplace" style="background-image: url('<%= image.image %>')">
             </div>
           <%}); %>
 
