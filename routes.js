@@ -29,7 +29,6 @@ module.exports = function(app){
     app.get('/dashboard', function(req, res){
         app.set('view engine', 'ejs');
         // Render the dashboard & define current user
-        // Get all campgrounds from DB
         image.find({'owner': 'Anonymous'}, function(err, allImages){
             // req.user.username is the user replace anonymous with it
             if(err){
