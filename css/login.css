@@ -15,7 +15,7 @@
 }
 
 #big-container form {
-  height: 200px;
+  height: 250px;
   width: 500px;
   background-color: #0E0E0E;
   border-bottom: 1px solid #00035B;
@@ -25,9 +25,33 @@
   justify-content: center;
 }
 
+.log-part {
+  width: 350px;
+  height: auto;
+}
+
+.sub-part {
+  width: 350px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sub-part a {
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+.log-part span {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+}
+
 .fill-need {
   height: 30px;
-  width: 75%;
+  width: 350px;
   border: none;
   background: none;
   margin-bottom: 10px;
@@ -39,6 +63,7 @@
   font-weight: bold;
 
   border-left: 1px solid #00035B;
+  box-sizing: border-box;
   padding: 2px 12px;
 }
 
