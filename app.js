@@ -20,19 +20,32 @@ var port = process.env.PORT || 3000;
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Images Database
-var Images = require("./models/image");
+
+
 
 // setting up database >>
 mongoose.connect('mongodb://josh:josh@ds163020.mlab.com:63020/imgup');
 
 
-var now = new Date();
+
+// Schema
+var images = new mongoose.Schema({
+  image: String,
+  url: String
+});
+
+
+
+
+// Create Model
+var Image = mongoose.model('imageId', images);
+
+
 
 
 // Multer setup, check multerjs for the code
 var multerSet = require('./multer.js');
-multerSet(multer, app);
+multerSet(multer, app, Image);
 
 
 // Passport setup, check auth.js for code
@@ -89,6 +102,7 @@ app.set("view engine", "pug");
 // instance of routes
 var routes = require('./routes.js');
 routes(app);
+
 
 
 app.listen(port, function(){
