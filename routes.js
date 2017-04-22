@@ -29,16 +29,18 @@ module.exports = function(app){
     // User Dashboard
     app.get('/dashboard', function(req, res){
         app.set('view engine', 'ejs');
-        // Render the dashboard & define current user
-        image.find({'owner': 'Anonymous'}, function(err, allImages){
-            // req.user.username is the user replace anonymous with it
-            if(err){
-                console.log(err);
-            }else{
+        image.find({'owner': req.user.username }, function(err, allImages){
+            
+            if(err){console.log(err);}
+            else{
                 res.render("dashboard", {userImages: allImages});
                 console.log(allImages);
             }
         });
+        setInterval(function() {
+      // Do something every 5 seconds
+      console.log(req.user.username);
+}, 5000);
     });
 
 };

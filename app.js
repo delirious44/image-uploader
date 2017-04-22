@@ -71,6 +71,7 @@ app.get("/image/:id", function(req, res){
 app.use(express.static(path.resolve(__dirname, "css")));
 app.use(express.static(path.resolve(__dirname, "js")));
 app.use(express.static(path.resolve(__dirname, "img")));
+app.use(express.static(path.resolve(__dirname, "uploads/images")));
 
 
 
