@@ -1,7 +1,7 @@
-module.exports = function(multer, app){
-  
+module.exports = function(multer, app, Image){
   // multer destination and name
   var storage = multer.diskStorage({
+    
 
     // File destination
     destination: function(req, file, cb){
@@ -10,16 +10,20 @@ module.exports = function(multer, app){
 
     // Name the file
     filename: function(req, file, cb){
-      cb(null, file.originalname);
+        cb(null, file.originalname);
     }
+
   });
+
+  var mongoose = require("mongoose");
+  var Image = require("./models/image");
 
   var upload = multer({ storage: storage });
 
+
   app.post('/', upload.any(), function(req, res, next){
       var imageUrl = req.body.imageUrl.substr(14);
-      var imageName = req.files[0].originalname
-
+      var imageName = req.files[0].originalname; //Change to correct logic 
 
       // For setting expire
       var now = new Date();
@@ -27,23 +31,29 @@ module.exports = function(multer, app){
         month: now+1,
         date: 1
       }
-
       // If user loggedin, setOwner to username
-      var auth = require('./auth.js');
       var setOwner;
+      // undefined is not correct here... 
       if(req.user != undefined)
       {
-        setOwner = req.user;
-        // setOwner = req.user.username;
+        setOwner = req.user.username;
       }else{
         setOwner = 'Anonymous';
       }
 
-
-      // Path logic here path should be
-      // `images/uploads/sdhfsdf`
-      // `or image/uploads/user/sidfhsdf`
-      var path = 'uploads/images/' + imageName;
-
+      var uploadImage = Image({
+        image: imageName,
+        url: imageUrl,
+        path: 'uploads/images/' + imageName,
+        uploadDate: now,
+        // expireationDate causes error
+        // expireDate: expirationDate,
+        owner: setOwner
+      }).save(function(err){
+        if(err) throw err;
+        console.log('Image Uploaded: name: ' + imageName + ' url: ' + imageUrl);
+        console.log("Done :)");
+        res.redirect('/' + 'image/' + imageUrl);
+      });
   });
 }

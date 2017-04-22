@@ -9,7 +9,6 @@ var mongoose = require("mongoose");
 var routes   = require("./routes.js");
 
 
-
 //Setup
 var app  = express();
 var port = process.env.PORT || 3000;
@@ -21,13 +20,13 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Images Database
-var Images = require("./models/image");
+var Image = require("./models/image");
 
 // setting up database >>
 mongoose.connect('mongodb://josh:josh@ds163020.mlab.com:63020/imgup');
 
-
-var now = new Date();
+// Passport
+var auth = require('./auth.js');
 
 
 // Multer setup, check multerjs for the code
@@ -47,27 +46,25 @@ app.use(function(req, res, next){
 })
 
 
-
 app.get("/image/:id", function(req, res){
   var imageUrl = req.params.id;
+
   Image.findOne({
     url: imageUrl
   }, function(err, image){
 
-      if(err){
-        console.log(err);
-        return;
-      }
-
-      else{
-        var location = image.image;
-        location = path.resolve(__dirname, "uploads", "images", location);
-        res.sendFile(location);
-      }
+    if(err){
+      console.log(err);
+      return;
+    }
+    
+    else{
+      var location = image.image;
+      location = path.resolve(__dirname, "uploads", "images", location);
+      res.sendFile(location);
+    }
   });
 });
-
-
 
 
 // Static files
