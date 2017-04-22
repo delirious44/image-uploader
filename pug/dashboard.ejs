@@ -1,5 +1,41 @@
-<h1><%= currentUser.username %></h1>
-<% userImages.forEach(function(image){ %>
-    <%= image.name %>
-    <img src="<%= image.image %>">
-<%}); %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= currentUser.username %> | Image Uploader</title>
+
+    <link href="dashboard.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  </head>
+  <body>
+
+    <div id="big-container">
+
+      <div id="navigation">
+        <div class="options">
+          <div class="opt1">
+            <a class="login" href="/logout">Logout</a>
+            <div class="hoverstate"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="lower-part">
+
+        <div id="image-block-holder">
+
+          <% userImages.forEach(function(image){ %>
+            <div class="imageplace">
+              <img src="<%= image.path %>">
+              <span><%= image.name %></span>
+            </div>
+          <%}); %>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
