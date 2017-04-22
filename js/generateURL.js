@@ -96,6 +96,13 @@ function clearUrl(){
             event.preventDefault();
             event.stopPropagation();
             dropZone.className = "hover";
+            // event.dataTransfer.setData("text/plain", null);
+        });
+
+        dropZone.addEventListener("dragstart" , function(event){
+            event.dataTransfer.setData("text/plain", null);
+            event.preventDefault();
+            event.stopPropagation();
         });
 
         dropZone.addEventListener("drop", function(event){
@@ -107,7 +114,7 @@ function clearUrl(){
             var dt = event.dataTransfer;
             fileInput.files = dt.files;
 
-        })
+        });
 
     }
 

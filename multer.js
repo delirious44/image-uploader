@@ -1,4 +1,4 @@
-module.exports = function(multer, app){
+module.exports = function(multer, app, Image){
   
   // multer destination and name
   var storage = multer.diskStorage({
@@ -33,11 +33,31 @@ module.exports = function(multer, app){
       var setOwner;
       if(req.user != undefined)
       {
-        setOwner = req.user;
-        // setOwner = req.user.username;
+        // setOwner = req.user;
+        setOwner = req.user.username;
       }else{
         setOwner = 'Anonymous';
       }
+
+      console.log(Image);
+
+      var imageOne = new Image({
+        image: imageName,
+        url: "/image/" + imageUrl,
+        path: imageUrl,
+        uploadDate: now,
+        expireDate: expirationDate,
+        owner: setOwner
+      });
+
+      imageOne.save(function(err){
+        console.log("Here");
+        if(err)
+          return err;
+        
+          console.log("Uploaded Image");
+          res.redirect("/image/" + imageUrl);
+      })
 
 
       // Path logic here path should be
