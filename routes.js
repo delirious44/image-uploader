@@ -24,11 +24,21 @@ module.exports = function(app){
         res.redirect('/');
     });
 
+    image = require('./models/image');
     // User Dashboard
     app.get('/dashboard', function(req, res){
         app.set('view engine', 'ejs');
         // Render the dashboard & define current user
-        res.render("dashboard", {currentUser: req.user});
+        // Get all campgrounds from DB
+        image.find({'owner': 'Anonymous'}, function(err, allImages){
+            // req.user.username is the user replace anonymous with it
+            if(err){
+                console.log(err);
+            }else{
+                res.render("dashboard", {userImages: allImages});
+                console.log(allImages);
+            }
+        });
     });
 
 };
