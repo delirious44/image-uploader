@@ -87,9 +87,6 @@
 .imageplace {
   height: 200px;
   width: 250px;
-}
-
-.imageplace img {
-  height: 100%;
-  width: 100%;
+  background-size: cover;
+  background-position: center;
 }
