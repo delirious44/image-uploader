@@ -1,8 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Image Uploader | Login</title>
 
-<h1>Sign Up!</h1>
+    <link href="register.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  </head>
+  <body>
 
-<form action="/register" method="post">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <button>Sign Up</button>
-</form>
+    <div id="big-container">
+
+      <div id="goback">
+
+        <a href="/"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+
+      </div>
+
+
+
+      <form action="/register" method="POST" autocomplete="off">
+        <div class="log-part">
+
+          <span>Username</span>
+          <input class="fill-need" type="text" name="username">
+
+        </div>
+
+        <div class="log-part">
+
+          <span>Password</span>
+          <input class="fill-need" type="password" name="password">
+
+        </div>
+
+        <div class="sub-part">
+
+          <button class="push-need">Sign up</button>
+          <a href="/login">Already have an account? Click here</a>
+
+        </div>
+
+      </form>
+
+    </div>
+  </body>
+</html>
